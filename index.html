@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>👍</text></svg>">
 <title>Chat Feedback</title>
 <style>
 body{font-family:Georgia,serif;max-width:600px;margin:60px auto;padding:20px;color:#333}
@@ -22,17 +22,17 @@ button:hover{background:#f5f5f5}
 <button id="up" title="Thumbs up">👍</button>
 </div>
 <script>
-const STORAGE_KEY='feedbackEmail_v1';
 const result=document.getElementById('result');
 const comment=document.getElementById('comment');
 const up=document.getElementById('up');
 const down=document.getElementById('down');
 
 function getEmail(){
-let email=sessionStorage.getItem(STORAGE_KEY);
+const params=new URLSearchParams(window.location.search);
+const email=params.get('email');
 if(!email){
-email=prompt('E-mail adres voor chat-feedback:');
-if(email) sessionStorage.setItem(STORAGE_KEY,email.trim());
+alert('Geen e-mail adres gevonden in URL. Voeg ?email=jouw@adres.nl toe aan de URL.');
+return null;
 }
 return email;
 }
