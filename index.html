@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>👍</text></svg>">
+<link rel="icon" href="favicon.png" type="image/png">
 <title>Chat Feedback</title>
 <style>
 body{font-family:Georgia,serif;max-width:600px;margin:60px auto;padding:20px;color:#333}
@@ -29,10 +29,10 @@ const up=document.getElementById('up');
 const down=document.getElementById('down');
 
 function getEmail(){
-let email=localStorage.getItem(STORAGE_KEY);
+let email=sessionStorage.getItem(STORAGE_KEY);
 if(!email){
 email=prompt('E-mail adres voor chat-feedback:');
-if(email) localStorage.setItem(STORAGE_KEY,email.trim());
+if(email) sessionStorage.setItem(STORAGE_KEY,email.trim());
 }
 return email;
 }
